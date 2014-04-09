@@ -32,7 +32,8 @@ def map_time(s):
                 '03:00PM': 13, '03:30PM': 14, '04:00PM': 15, '04:30PM': 16, 
                 '05:00PM': 17, '05:30PM': 18, '06:00PM': 19, '06:30PM': 20, 
                 '07:00PM': 21, '07:30PM': 22, '08:00PM': 23, '08:30PM': 24,
-                '09:00PM': 25, '09:30PM': 26, '10:00PM': 27, '10:30PM': 28}
+                '09:00PM': 25, '09:30PM': 26, '10:00PM': 27, '10:30PM': 28,
+                '11:00PM': 29, '11:30PM': 30}
     day, time = tuple(s.split(' ', 1))
     day_list = [int(char) for char in replace_dict(day, day_map)]
     time_str = replace_dict(replace_dict(time, time_replace), time_map)

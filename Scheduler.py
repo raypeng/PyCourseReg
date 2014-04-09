@@ -37,21 +37,22 @@ JSON_FILE = 'courses.json'
 FOLDER = 'PyCourseReg'
 print '============ WELCOME TO PyCourseReg v0.1 ============'
 try:
-    path = os.path.join(FOLDER, JSON_FILE)
+    path = os.path.join(JSON_FILE)
     catalog = load_json(path)
     print 'Course info loaded from local disk...'
 except:
     print 'Grabbing course info from the web...'
     catalog = parse_url(INDEX)
     print 'Course info parsing done...'
-    path = os.path.join(FOLDER, JSON_FILE)
-    save_json(catalog, path)
+    save_json(catalog, JSON_FILE)
     print 'Course info saved to local dist...'
     
 options = {}
 for k, v in catalog.iteritems():
     t = Course(v)
     options[k] = t.options
+
+os.mkdir(FOLDER)
 
 wish_list = []
 schedule_list = []
