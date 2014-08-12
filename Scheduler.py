@@ -32,10 +32,11 @@ def get_solution(schedule_list):
     return ans
 
         
-INDEX = 'https://w5.ab.ust.hk/wcq/cgi-bin/1330/'
+INDEX = 'https://w5.ab.ust.hk/wcq/cgi-bin/1410/'
 JSON_FILE = 'courses.json'
 FOLDER = 'PyCourseReg'
 print '============ WELCOME TO PyCourseReg v0.1 ============'
+
 try:
     path = os.path.join(JSON_FILE)
     catalog = load_json(path)
@@ -52,7 +53,10 @@ for k, v in catalog.iteritems():
     t = Course(v)
     options[k] = t.options
 
-os.mkdir(FOLDER)
+if os.path.exists(FOLDER):
+    pass
+else:
+    os.mkdir(FOLDER)
 
 wish_list = []
 schedule_list = []
@@ -115,4 +119,3 @@ while True:
     ans = raw_input('Wanna see the details? (y/n) ')
     if ans.lower() == 'y':
         print get_solution(schedule_list)
-        

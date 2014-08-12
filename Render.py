@@ -1,4 +1,5 @@
 from Course import *
+
 import random
 
 
@@ -58,16 +59,16 @@ def random_colors(n):
 
 def convert(n):
     if n % 2 == 0:
-        temp = '{0:02d}'.format(8 + n / 2)
+        temp = '{0:02d}'.format(7 + n / 2)
 	return '{0}:30 - {0}:50'.format(temp)
     else:
-	temp = '{0:02d}'.format(9 + n / 2)
+	temp = '{0:02d}'.format(8 + n / 2)
 	return '{0}:00 - {0}:20'.format(temp)
 
 
 def build_conversion():
     table = {}
-    for i in range(1, 29):
+    for i in range(1, 33):
         table[i] = convert(i)
     return table
 
@@ -119,13 +120,13 @@ def course_entry(time, time_map, color_map, occupied):
             '{0}<br/>{1}</div></td>'.format(course, section)
     elif time not in occupied:
         s = '<td bgcolor="#FFFFFF" height="5" nowrap="nowrap" width="90"></td>'
-    return s        
+    return s
 
 
 def render_html(time_map, color_map, occupied):
     table = build_conversion()
     html = header
-    for t in range(1, 29):
+    for t in range(1, 33):
         html += '<tr>' + time_entry(t, table)
         for d in range(1, 6):
             time = 100 * d + t
