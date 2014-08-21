@@ -46,7 +46,7 @@ except:
     catalog = parse_url(INDEX)
     print 'Course info parsing done...'
     save_json(catalog, JSON_FILE)
-    print 'Course info saved to local dist...'
+    print 'Course info saved to local disk...'
     
 options = {}
 for k, v in catalog.iteritems():
